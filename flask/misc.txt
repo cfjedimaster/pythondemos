@@ -1,0 +1,25 @@
+Just a place to leave notes. 
+
+Install: https://flask.palletsprojects.com/en/stable/installation/
+
+```
+mkdir myproject
+cd myproject
+python3 -m venv .venv
+.venv/bin/activate
+```
+
+Ray, try source .venv/bin/activate if your prompt doesnt change.
+
+Then: `pip install flask`
+
+Make your file, and then: `flask --app NAME_OF_FILE_MINUS_PY run`
+If your file is app.py, you can just do `flask run`
+
+Add `--debug` for debug mode, better errors and auto app reload
+
+
+Form variables: request.form['name of form key']
+QS variables: request.args.get('key','default')
+Files: request.files['name of file key'], you can .save the value 
+Cookies: request.cookies.get('name'), to set, see docs example
