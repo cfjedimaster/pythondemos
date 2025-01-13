@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}My Blog{% endblock %}
+
+{% block content %}
+<h1>Latest Blog Posts</h1>
+
+<!--
+first try:
+for post in posts[:2] | sort(attribute="datepublished", reverse=True) 
+-->
+{% for post in (posts | sort(attribute="datepublished", reverse=True))[:10] %}
+	<p>
+		<a href="{{ url_for('post', slug=post.slug) }}">{{ post.title }}</a> ({{ post.published }})<br/>
+		{{ post.body | truncate(50) }}
+	</p>
+{% endfor %}
+{% endblock %}
